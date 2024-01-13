@@ -31,7 +31,7 @@ chmod +x *
 **Option B: Run the Python script:**
 
 ```bash
-apt install python && python CHATGPT.py
+apt install python3 && python CHATGPT.py
 ```
 
 **By following these steps and executing the appropriate script, you should be able to interact with ChatGPT within Termux.**
