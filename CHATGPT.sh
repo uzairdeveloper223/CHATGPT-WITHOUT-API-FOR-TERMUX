@@ -52,12 +52,26 @@ while true; do
 read -p "Enter a quote or word: " quote
 
 if [[ "$quote" == "exit" ]]; then
-    echo -e "${BLUE}Thanks for Using!"                                                                                                           break
-  fi                                                                                                                                         
-# Convert the input to lowercase for case-insensitive matching                                                                               quote_lower=$(echo "$quote" | tr '[:upper:]' '[:lower:]')                                                                                                                                                                                                                                 # Search for full or partial word matches                                                                                                    for keyword in "${!responses[@]}"; do                                                                                                          if [[ "$quote_lower" == "$keyword" || "$quote_lower" =~ "$keyword" ]]; then                                                                    response="${responses[$keyword]}"
-    echo -e "${GREEN}$response${RESET}"                                                                                                          break  # Exit the loop if a match is found                                                                                                 fi                                                                                                                                         done
-                                                                                                                                             # If no match found, proceed with original logic                                                                                             if [[ -z "$response" ]]; then                                                                                                                  # Search for a matching response using the original method                                                                                   response="${responses[$quote_lower]}"
+    echo -e "${BLUE}Thanks for Using!"
+break
+  fi
+# Convert the input to lowercase for case-insensitive matching
+quote_lower=$(echo "$quote" | tr '[:upper:]' '[:lower:]'
+# Search for full or partial word matchs
+for keyword in "${!responses[@]}"; do
+if [[ "$quote_lower" == "$keyword" || "$quote_lower" =~ "$keyword" ]]; then
+response="${responses[$keyword]}"
+    echo -e "${GREEN}$response${RESET}"
 
+break
+# Exit the loop if a match is found
+fi
+done
+
+# If no match found, proceed with original logic
+if [[ -z "$response" ]]; then
+# Search for a matching response using the original method
+ response="${responses[$quote_lower]}"
   if [[ -n "$response" ]]; then
     # Response found, display it
     echo "$response"
