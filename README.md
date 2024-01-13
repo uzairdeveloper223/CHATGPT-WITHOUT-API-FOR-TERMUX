@@ -11,7 +11,7 @@ apt install git
 **2. Clone the repository:**
 
 ```bash
-git clone https://github.com/UzairDeveloper223/CHATGPT-WITHOUT-API-FOR-TERMUX.git
+git clone https://github.com/UzairDeveloper223/CHATGPT-WITHOUT-API-FOR-TERMUX.git && cd CHATGPT-WITHOUT-API-FOR-TERMUX.git
 ```
 
 **3. Make the scripts executable:**
