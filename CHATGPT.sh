@@ -6,7 +6,8 @@ RESET="\e[0m"
 
 echo -e "${GREEN}Installing Termux-tool to run SOYES${RESET}"
 if ! command -v termux-open &> /dev/null; then
-  echo "Installing termux-tools..."                                                                                                            pkg install termux-tools
+  echo "Installing termux-tools..."
+  pkg install termux-tools
 fi
 
 
@@ -56,7 +57,7 @@ if [[ "$quote" == "exit" ]]; then
 break
   fi
 # Convert the input to lowercase for case-insensitive matching
-quote_lower=$(echo "$quote" | tr '[:upper:]' '[:lower:]'
+quote_lower=$(echo "$quote" | tr '[:upper:]' '[:lower:]')
 # Search for full or partial word matchs
 for keyword in "${!responses[@]}"; do
 if [[ "$quote_lower" == "$keyword" || "$quote_lower" =~ "$keyword" ]]; then
